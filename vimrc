@@ -29,6 +29,7 @@ if has("gui_running")
 	set columns=130
 	colorscheme lucius
 	LuciusLight
+        set guifont=Monospace\ 9
 endif
 "   * Latex-Suite
 set grepprg=grep\ -nH\ $*
