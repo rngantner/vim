@@ -16,18 +16,6 @@ set cursorline               " highlight cursor line
 
 " Statusline
 if has("gui_running")
-    set statusline=
-    set statusline +=%1*\ %n\ %*            "buffer number
-    set statusline +=%5*%{&ff}%*            "file format
-    set statusline +=%3*%y%*                "file type
-    set statusline +=%4*\ %<%F%*            "full path
-    set statusline +=%2*%m%*                "modified flag
-    set statusline +=%2*%=%{fugitive#statusline()}    " git branch info
-    set statusline +=%1*%5l%*               "current line
-    set statusline +=%2*/%L%*               "total lines
-    set statusline +=%1*%4v\ %*             "virtual column number
-    set statusline +=%2*0x%04B\ %*          "character under cursor
-
 " Formatting
     set foldenable               " enable folding
     set foldmethod=syntax        " autofold for code
