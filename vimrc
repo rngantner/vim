@@ -1,6 +1,7 @@
 call pathogen#infect()
 syntax on
 filetype plugin indent on
+set laststatus=2
 
 if has("gui_running")
     set autoread                 " if file is changed it is automatically reloaded
@@ -13,6 +14,21 @@ set number                   " show line numbers
 set scrolloff=3              " min 3 lines below cursor while scrolling
 set ignorecase               " ignore case when searching
 set cursorline               " highlight cursor line
+
+let g:lightline = {
+    \ 'active': {
+    \     'left': [ [ 'mode', 'paste' ],
+    \             [ 'fugitive', 'filename', 'modified' ] ]
+    \ },
+    \ 'component': {
+    \     'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
+    \     'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+    \ },
+    \ 'component_visible_condition': {
+    \     'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
+    \     'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+    \ }
+\}
 
 " Statusline
 if has("gui_running")
@@ -38,8 +54,11 @@ if has("gui_running")
 	LuciusLight
         set guifont=Monospace\ 9
 endif
+
 "   * Latex-Suite
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex'
 let g:Tex_DefaultTargetFormat = 'pdf'
 
+"   * Gundo
+nnoremap <F5> :GundoToggle<CR>
