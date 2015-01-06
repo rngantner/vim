@@ -48,8 +48,8 @@ set colorcolumn=120
 " Plugins
 "   * Lucius
 if has("gui_running")
-	set lines=77
-	set columns=130
+	set lines=70
+	set columns=180
 	colorscheme lucius
 	LuciusLight
         set guifont=Monospace\ 9
@@ -62,3 +62,8 @@ let g:Tex_DefaultTargetFormat = 'pdf'
 
 "   * Gundo
 nnoremap <F5> :GundoToggle<CR>
+
+"   * clang-format
+map <C-K> :pyf /u/gantnerr/.vim/clang-format.py<cr>
+imap <C-K> <c-o>:pyf /u/gantnerr/.vim/clang-format.py<cr>
+
